@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paal.ai</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Custom glow effect for button */
+        .neon-btn {
+            border: 2px solid #60A5FA;
+            background: linear-gradient(90deg, #60A5FA, #A78BFA); /* Gradient button */
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+        .neon-btn:hover {
+            box-shadow: 0 0 15px #60A5FA, 0 0 30px #A78BFA;
+            transform: scale(1.05);
+        }
+        /* Font styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        /* Smooth fade-in animation for sections with staggered delay */
+        section {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        section:nth-child(1) { animation-delay: 0.1s; }
+        section:nth-child(2) { animation-delay: 0.2s; }
+        section:nth-child(3) { animation-delay: 0.3s; }
+        section:nth-child(4) { animation-delay: 0.4s; }
+        section:nth-child(5) { animation-delay: 0.5s; }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Scroll padding and smooth scrolling */
+        html {
+            scroll-padding-top: 120px; /* Increased to account for header and divider */
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+        /* Gradient background for sections */
+        section {
+            background: linear-gradient(135deg, #1F2937, #111827); /* Subtle gradient */
+        }
+        /* Translucent box style with gradient */
+        .translucent-box {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.7), rgba(55, 65, 81, 0.5));
+            border: 1px solid #6B7280; /* Lighter border for contrast */
+            backdrop-filter: blur(4px);
+        }
+        /* Header animation */
+        header {
+            transition: transform 0.3s ease-in-out;
+        }
+        .header-hidden {
+            transform: translateY(-100%);
+        }
+        .header-visible {
+            transform: translateY(0);
+        }
+        /* Colorful text accents */
+        .text-neon-green {
+            color: #34D399; /* Neon green */
+        }
+        .text-neon-purple {
+            color: #A78BFA; /* Neon purple */
+        }
+        .text-neon-cyan {
+            color: #22D3EE; /* Neon cyan */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-gray-800 to-gray-700 py-8 px-10 shadow-lg sticky top-0 z-10 header-visible">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <h1 class="text-4xl font-bold text-neon-cyan">Paal.ai</h1>
+            <nav>
+                <ul class="flex space-x-10 text-gray-300">
+                    <li><a href="#home" class="hover:text-neon-green transition">Home</a></li>
+                    <li><a href="#features" class="hover:text-neon-green transition">Features</a></li>
+                    <li><a href="#how-it-works" class="hover:text-neon-green transition">How It Works</a></li>
+                    <li><a href="#testimonials" class="hover:text-neon-green transition">Testimonials</a></li>
+                    <li><a href="#faq" class="hover:text-neon-green transition">FAQ</a></li>
+                    <li><a href="#contact" class="hover:text-neon-green transition">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center py-20 pt-32">
+            <div class="max-w-7xl mx-auto w-full px-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+                    <!-- Text Content -->
+                    <div class="space-y-10">
+                        <h2 class="text-6xl font-extrabold tracking-tight text-neon-purple">Advanced Milk Quality Analysis</h2>
+                        <p class="text-gray-300 leading-relaxed text-xl">
+                            Leverage state-of-the-art AI technology to monitor and predict milk quality in real time. Our system ensures the highest standards of safety, purity, and reliability for dairy producers and consumers alike.
+                        </p>
+                        <a href="/predict" class="inline-block px-10 py-4 rounded-full neon-btn font-semibold text-lg">Get Started</a>
+                    </div>
+                    <!-- Image Section -->
+                    <div class="relative ml-10">
+                        <img src="{{ url_for('static', filename='paal.png') }}" alt="Milk Quality" class="rounded-xl shadow-lg scale-[1.5]">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="border-t border-gray-600 max-w-7xl mx-auto"></div>
+
+        <!-- Features Section -->
+        <section id="features" class="min-h-screen flex items-center justify-center py-20 pt-32">
+            <div class="max-w-7xl mx-auto w-full px-10">
+                <h3 class="text-4xl font-semibold text-neon-green text-center mb-16">Why Choose Us?</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                    <div class="translucent-box p-8 rounded-lg shadow-md">
+                        <svg class="w-10 h-10 mb-6 text-neon-cyan" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                        <h4 class="text-2xl font-medium text-gray-200">Real-Time Assessment</h4>
+                        <p class="text-gray-400 mt-4">Instantly evaluate milk quality with live data processing.</p>
+                    </div>
+                    <div class="translucent-box p-8 rounded-lg shadow-md">
+                        <svg class="w-10 h-10 mb-6 text-neon-cyan" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                        <h4 class="text-2xl font-medium text-gray-200">AI-Driven Accuracy</h4>
+                        <p class="text-gray-400 mt-4">Precision predictions powered by advanced machine learning.</p>
+                    </div>
+                    <div class="translucent-box p-8 rounded-lg shadow-md">
+                        <svg class="w-10 h-10 mb-6 text-neon-cyan" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                        <h4 class="text-2xl font-medium text-gray-200">Reliable Predictions</h4>
+                        <p class="text-gray-400 mt-4">Trustworthy results to ensure milk safety and quality.</p>
+                    </div>
+                    <div class="translucent-box p-8 rounded-lg shadow-md">
+                        <svg class="w-10 h-10 mb-6 text-neon-cyan" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                        <h4 class="text-2xl font-medium text-gray-200">IoT Integration</h4>
+                        <p class="text-gray-400 mt-4">Seamlessly connect with IoT sensors for continuous monitoring.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="border-t border-gray-600 max-w-7xl mx-auto"></div>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="min-h-screen flex items-center justify-center py-20 pt-32">
+            <div class="max-w-7xl mx-auto w-full px-10">
+                <h3 class="text-4xl font-semibold text-neon-purple text-center mb-16">How It Works</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="text-center">
+                        <div class="translucent-box p-6 rounded-lg shadow-md">
+                            <h4 class="text-2xl font-medium text-gray-200 mb-4">1. Data Collection</h4>
+                            <p class="text-gray-400">IoT sensors collect real-time data on milk parameters like pH, temperature, and microbial content.</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="translucent-box p-6 rounded-lg shadow-md">
+                            <h4 class="text-2xl font-medium text-gray-200 mb-4">2. AI Analysis</h4>
+                            <p class="text-gray-400">Our AI algorithms analyze the data to predict milk quality and detect potential issues.</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="translucent-box p-6 rounded-lg shadow-md">
+                            <h4 class="text-2xl font-medium text-gray-200 mb-4">3. Actionable Insights</h4>
+                            <p class="text-gray-400">Receive detailed reports and recommendations to maintain optimal milk quality.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="border-t border-gray-600 max-w-7xl mx-auto"></div>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="min-h-screen flex items-center justify-center py-20 pt-32">
+            <div class="max-w-7xl mx-auto w-full px-10">
+                <h3 class="text-4xl font-semibold text-neon-green text-center mb-16">What Our Clients Say</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="translucent-box p-8 rounded-lg shadow-md">
+                        <p class="text-gray-300 italic">"This system has revolutionized our dairy production. We can now ensure the highest quality standards with ease."</p>
+                        <p class="text-gray-400 mt-4 font-medium">— John Doe, Dairy Farmer</p>
+                    </div>
+                    <div class="translucent-box p-8 rounded-lg shadow-md">
+                        <p class="text-gray-300 italic">"The real-time insights have helped us reduce waste and improve efficiency significantly."</p>
+                        <p class="text-gray-400 mt-4 font-medium">— Jane Smith, Dairy Processor</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="border-t border-gray-600 max-w-7xl mx-auto"></div>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="min-h-screen flex items-center justify-center py-20 pt-32">
+            <div class="max-w-7xl mx-auto w-full px-10">
+                <h3 class="text-4xl font-semibold text-neon-purple text-center mb-16">Frequently Asked Questions</h3>
+                <div class="space-y-8 max-w-3xl mx-auto">
+                    <div>
+                        <h4 class="text-2xl font-medium text-gray-200">What parameters does the system analyze?</h4>
+                        <p class="text-gray-400 mt-2">Our system analyzes pH, temperature, microbial content, and other key factors to assess milk quality.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-medium text-gray-200">Is the system easy to integrate with existing setups?</h4>
+                        <p class="text-gray-400 mt-2">Yes, our system seamlessly integrates with IoT sensors and existing dairy setups.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-medium text-gray-200">How accurate are the predictions?</h4>
+                        <p class="text-gray-400 mt-2">Our AI-driven predictions are highly accurate, with continuous improvements through machine learning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-gray-800 to-gray-700 py-8 px-10">
+        <div class="max-w-7xl mx-auto text-center text-gray-400">
+            <p>© 2025 Milk Quality Detection. All rights reserved.</p>
+            <div class="mt-6 flex justify-center space-x-8">
+                <a href="#contact" class="hover:text-neon-green transition">Contact Us</a>
+                <a href="#privacy" class="hover:text-neon-green transition">Privacy Policy</a>
+                <a href="#terms" class="hover:text-neon-green transition">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Header Scroll Behavior -->
+    <script>
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+        const heroSection = document.querySelector('#home');
+        let heroSectionHeight = heroSection.offsetHeight;
+
+        // Update hero section height on window resize
+        window.addEventListener('resize', () => {
+            heroSectionHeight = heroSection.offsetHeight;
+        });
+
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+            // Check if user is in the hero section
+            if (scrollTop <= heroSectionHeight) {
+                header.classList.remove('header-hidden');
+                header.classList.add('header-visible');
+            } else {
+                // Hide header when scrolling down, show when scrolling up
+                if (scrollTop > lastScrollTop) {
+                    // Scrolling down
+                    header.classList.remove('header-visible');
+                    header.classList.add('header-hidden');
+                } else {
+                    // Scrolling up
+                    header.classList.remove('header-hidden');
+                    header.classList.add('header-visible');
+                }
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+        });
+    </script>
+</body>
+</html>
