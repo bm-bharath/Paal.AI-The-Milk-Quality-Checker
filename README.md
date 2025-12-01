@@ -1,13 +1,14 @@
 # 🥛 Paal.AI - Milk Quality Checker  
 **An IoT-enabled, Machine Learning–Powered System for Real-Time Milk Quality Monitoring**
 
+The **Milk Quality Checker** integrates sensor hardware, embedded programming, and machine learning to evaluate milk quality in real time.  
+Designed for rural dairy farms, it brings automation, transparency, and smart analytics to traditional milk testing processes.
+
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 ![IoT](https://img.shields.io/badge/IoT-Enabled-blue)
 ![Machine Learning](https://img.shields.io/badge/ML-LightGBM-orange)
 ![Firebase](https://img.shields.io/badge/Cloud-Firebase-yellow)
 
-The **Milk Quality Checker** integrates sensor hardware, embedded programming, and machine learning to evaluate milk quality in real time.  
-Designed for rural dairy farms, it brings automation, transparency, and smart analytics to traditional milk testing processes.
 
 ---
 
